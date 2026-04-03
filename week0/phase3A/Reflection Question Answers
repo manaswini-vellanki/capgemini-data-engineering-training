@@ -1,0 +1,19 @@
+1) What happens if cleaning is skipped?
+If we skip cleaning, the data will have issues like missing values, duplicates, and incorrect records.
+Because of this, the analysis will not be accurate and the results can be wrong.
+
+2) Which issue impacted results most?
+Missing customer_id affected the most because it is an important column for grouping and joining data.
+Without it, we cannot properly identify customers, so the data becomes unreliable.
+
+3) How would this affect business decisions?
+If the data is not clean, the insights will be wrong.
+This can lead to poor decisions, like targeting the wrong customers or calculating revenue incorrectly.
+
+4) Can you define a cleaning checklist?
+Yes, a simple checklist is:
+Remove null values
+Handle missing data
+Remove duplicate records
+Filter invalid values
+Validate the data after cleaning
