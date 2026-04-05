@@ -1,0 +1,6 @@
+1.Why do we convert continuous values into categories
+  To make data easier to understand and analyze. Instead of dealing with many numeric values, we group them into meaningful labels like Gold, Silver, and Bronze.
+
+2.What is the difference between business segmentation and technical bucketing
+  Business segmentation is based on predefined business rules such as spend greater than 100 being labeled as Gold.
+  Technical bucketing is based on data distribution or algorithms such as quantiles or bucketizer.
