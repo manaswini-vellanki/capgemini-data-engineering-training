@@ -4,3 +4,15 @@
 2.What is the difference between business segmentation and technical bucketing
   Business segmentation is based on predefined business rules such as spend greater than 100 being labeled as Gold.
   Technical bucketing is based on data distribution or algorithms such as quantiles or bucketizer.
+
+3. When would fixed thresholds fail?
+   Fixed thresholds fail when the data distribution changes.
+   For example, if most customers spend very high or very low, the segments become unbalanced and less meaningful.
+
+4. How does quantile-based segmentation differ from fixed rules?
+   Fixed rules → Use predefined values
+   Quantile-based → Divides data into equal-sized groups based on distribution
+
+5. Which method would you use in real-world projects?
+  Use conditional logic when business rules are clearly defined
+  Use quantile or ranking methods when you need balanced, data-driven segmentation
