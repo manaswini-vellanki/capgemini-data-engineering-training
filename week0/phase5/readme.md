@@ -89,6 +89,10 @@ The main tasks included:
 
 ---
 
+## 🔹 Notebook Link
+
+https://dbc-f8297b85-0c36.cloud.databricks.com/editor/notebooks/163268703148572?o=7474649877921584
+
 ## 🔹 Pipeline Overview  
 
 Data Ingestion → Load CSV files  
