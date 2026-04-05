@@ -1,6 +1,6 @@
 This repository contains everything that we have learned in our training journey.
-
- WEEK 0:
+---
+# WEEK 0:
 
 🔹 Phase 0: Basics
 Completed Databricks Data Engineering course
