@@ -1,175 +1,92 @@
-## 🔹 Objective
+🔹 Objective
 
-In this phase, the goal is to perform data cleaning, transformation, and pattern extraction using PySpark and Regular Expressions (Regex).
-The focus is on handling real-world data issues such as inconsistent formats, missing values, and extracting useful patterns from text data.
+In this phase, the goal is to understand how to use SQL functions to clean and transform data.
+The focus is on handling missing values, formatting text data, and working with date-related information.
 
----
-
-## 🔹 Problem Summary
+🔹 Problem Summary
 
 The datasets used in this phase contained:
 
-- Text data with mixed patterns (alphabets + numbers)
-- Columns like email, phone, and IDs that required pattern extraction
-- Missing (NULL) values in some fields
-- Inconsistent formats in categorical columns
+Missing (NULL) values that could affect calculations
+Text data in inconsistent formats (uppercase, lowercase, spaces)
+Date columns that required extraction and comparison
 
-The main tasks were to:
+The task was to:
 
-- Clean and standardize the data
-- Extract specific patterns using Regular Expressions
-- Handle NULL values effectively
-- Perform transformations using PySpark DataFrame operations
+Handle NULL values properly
+Standardize and clean text data
+Extract meaningful insights from date columns
+Apply classification logic based on conditions
+🔹 Approach
+Identified columns with missing or inconsistent data
+Applied appropriate NULL-handling techniques to avoid errors
+Cleaned and formatted string data for consistency
+Used date-based operations to calculate differences and extract components
+Applied conditional logic to categorize data
+🔹 Key Transformations Used
 
----
+🔸 NULL Functions
 
-## 🔹 Approach
+These functions are used to handle missing values in the dataset.
 
-1. Loaded the dataset into a PySpark DataFrame
-2. Inspected the data for inconsistencies and missing values
-3. Applied filtering conditions to extract required records
-4. Used column transformations to clean and standardize data
-5. Applied Regular Expressions to extract patterns from text fields
-6. Performed sorting, deduplication, and data enrichment
-7. Generated the final structured output
-
----
-
-## 🔹 Key Transformations Used
-
-### 🔸 Regular Expressions (Regex)
-
-Regex was used to extract patterns from text-based columns such as:
-
-- Extracting numbers from strings
-- Identifying patterns at the beginning or end of values
-- Extracting parts of emails (username, domain)
-- Extracting country codes from phone numbers
-- Separating alphabetic and numeric values
+Replace NULL values with default values to prevent calculation errors
+Ensure that mathematical operations do not return NULL results
+Compare values safely without causing unexpected outputs
 
 Importance:
-Regex helps in extracting meaningful patterns from unstructured text data, which is very common in real-world datasets.
+Handling NULL values is critical because ignoring them can lead to incorrect results in aggregations and calculations.
 
----
+🔸 String Functions
 
-### 🔸 Data Filtering
+These functions are used to clean and standardize text data.
 
-- Applied conditions to filter rows based on specific column values
-- Used logical operators to combine multiple filters
-
-Importance:
-Filtering helps in selecting only relevant data for analysis.
-
----
-
-### 🔸 Column Transformations
-
-- Renamed columns for better readability
-- Created new columns using constant or derived values
-- Standardized categorical values
+Convert text to uppercase or lowercase for consistency
+Format names into proper readable format
+Extract specific parts of a string when needed
+Remove unnecessary spaces or unwanted characters
 
 Importance:
-Transformations improve data consistency and prepare it for analysis.
+String functions improve data quality and make the output more readable and consistent, which is important for reporting and analysis.
 
----
+🔸 Date Functions
 
-### 🔸 Conditional Logic
+These functions help in working with date and time data.
 
-- Applied conditional rules to modify column values
-- Categorized data based on specific conditions
-
-Importance:
-Helps apply business logic and makes the data more meaningful.
-
----
-
-### 🔸 NULL Handling
-
-- Identified missing values in columns
-- Replaced NULL values with default values
+Extract components such as year or month from a date
+Calculate the difference between two dates
+Identify current date for comparison
+Convert date values into meaningful formats
 
 Importance:
-Prevents errors during processing and ensures accurate results.
+Date functions are essential for time-based analysis such as calculating experience, delivery time, or duration.
 
----
+🔹 Output / Results
 
-### 🔸 Sorting & Deduplication
+The transformations resulted in:
 
-- Sorted data based on one or more columns
-- Removed duplicate records
+Clean datasets with properly handled NULL values
+Consistent and well-formatted text data
+Accurate date-based calculations and insights
+Categorized outputs based on business rules
 
-Importance:
-Ensures clean and well-organized data for analysis.
+🔹 Data Engineering Considerations
 
----
+Proper handling of NULL values ensures data reliability
+Consistent string formatting improves data usability
+Accurate date calculations are crucial for time-based decisions
+Applying logic-based classification helps in business understanding
 
-### 🔸 Date Functions
+🔹 Challenges Faced
 
-- Added current date columns
-- Calculated future and past dates
+Managing NULL values in calculations without affecting results
+Choosing the correct function for string manipulation
+Understanding how date differences are calculated
+Applying correct conditions for 
 
-Importance:
-Used for time-based tracking and analysis.
+🔹 Learnings
 
----
-
-### 🔸 String Operations
-
-- Standardized text format (case conversion)
-- Split columns into structured formats
-
-Importance:
-Improves readability and usability of text data.
-
----
-
-## 🔹 Output / Results
-
-The following outputs were generated:
-
-- Cleaned dataset with consistent formatting
-- Extracted patterns such as:
-  - Email components
-  - Phone number country codes
-  - Numeric and alphabetic segments
-- Dataset with minimal NULL-related issues
-- Sorted and deduplicated data ready for analysis
-
----
-
-## 🔹 Data Engineering Considerations
-
-- Ensured proper handling of NULL values
-- Applied regex carefully to avoid incorrect pattern extraction
-- Maintained data consistency after transformations
-- Verified outputs after each transformation step
-
----
-
-## 🔹 Challenges Faced
-
-- Understanding complex regex patterns
-- Extracting specific parts of strings accurately
-- Handling mixed data types in columns
-- Managing NULL values during transformations
-
----
-
-## 🔹 Learnings
-
-- How Regular Expressions are used for pattern extraction
-- Importance of data cleaning in real-world scenarios
-- Practical usage of PySpark DataFrame transformations
-- Handling missing data effectively
-- Applying conditional logic for data standardization
-
----
-
-## 🔹 Topics Covered
-
-- Regular Expressions (pattern matching & extraction)
-- Data filtering and transformations
-- NULL value handling
-- String manipulation
-- Date operations
-- Sorting and deduplication
+Importance of cleaning data before performing analysis
+Practical use of NULL functions in real-world datasets
+How string functions enhance data presentation
+Role of date functions in deriving meaningful insights
+Use of conditional logic for categorizing data
