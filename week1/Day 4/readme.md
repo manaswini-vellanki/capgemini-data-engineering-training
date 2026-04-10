@@ -1,128 +1,175 @@
-# ------------------------------
-# 🔹 Objective
-# ------------------------------
-# In this phase, the goal is to perform data cleaning, transformation,
-# and pattern extraction using PySpark and Regular Expressions (Regex).
-# Focus is on handling inconsistent formats, NULL values, and extracting patterns.
+## 🔹 Objective
 
-# ------------------------------
-# 🔹 Problem Summary
-# ------------------------------
-# Dataset contains:
-# - Mixed text patterns (alphabets + numbers)
-# - Email, phone, and ID columns needing extraction
-# - Missing (NULL) values
-# - Inconsistent categorical formats
+In this phase, the goal is to perform data cleaning, transformation, and pattern extraction using PySpark and Regular Expressions (Regex).
+The focus is on handling real-world data issues such as inconsistent formats, missing values, and extracting useful patterns from text data.
 
-# Tasks:
-# - Clean and standardize data
-# - Extract patterns using Regex
-# - Handle NULL values
-# - Perform PySpark transformations
+---
 
-# ------------------------------
-# 🔹 Approach
-# ------------------------------
-# 1. Load dataset into PySpark DataFrame
-# 2. Inspect for NULLs and inconsistencies
-# 3. Apply filters to extract required data
-# 4. Perform column transformations
-# 5. Use Regex for pattern extraction
-# 6. Apply sorting and deduplication
-# 7. Generate final structured dataset
+## 🔹 Problem Summary
 
-# ------------------------------
-# 🔹 Key Transformations
-# ------------------------------
+The datasets used in this phase contained:
 
-# 🔸 Regex (Regular Expressions)
-# - Extract numbers from strings
-# - Identify start/end patterns
-# - Extract email username/domain
-# - Extract phone country codes
-# - Separate alphabets and numbers
-# Importance: Helps extract structured info from unstructured text
+- Text data with mixed patterns (alphabets + numbers)
+- Columns like email, phone, and IDs that required pattern extraction
+- Missing (NULL) values in some fields
+- Inconsistent formats in categorical columns
 
-# 🔸 Data Filtering
-# - Apply conditions on columns
-# - Use AND (&), OR (|)
-# Importance: Keeps only relevant data
+The main tasks were to:
 
-# 🔸 Column Transformations
-# - Rename columns
-# - Create new columns
-# - Standardize values
-# Importance: Improves data consistency
+- Clean and standardize the data
+- Extract specific patterns using Regular Expressions
+- Handle NULL values effectively
+- Perform transformations using PySpark DataFrame operations
 
-# 🔸 Conditional Logic
-# - Use CASE / when conditions
-# - Categorize data
-# Importance: Applies business rules
+---
 
-# 🔸 NULL Handling
-# - Identify missing values
-# - Replace using default values or COALESCE
-# Importance: Avoids errors and incorrect results
+## 🔹 Approach
 
-# 🔸 Sorting & Deduplication
-# - Sort using columns
-# - Remove duplicate rows
-# Importance: Clean and organized data
+1. Loaded the dataset into a PySpark DataFrame
+2. Inspected the data for inconsistencies and missing values
+3. Applied filtering conditions to extract required records
+4. Used column transformations to clean and standardize data
+5. Applied Regular Expressions to extract patterns from text fields
+6. Performed sorting, deduplication, and data enrichment
+7. Generated the final structured output
 
-# 🔸 Date Functions
-# - Use current date
-# - Calculate date differences
-# Importance: Time-based analysis
+---
 
-# 🔸 String Operations
-# - Convert case (upper, lower, initcap)
-# - Split and extract text
-# Importance: Improves readability
+## 🔹 Key Transformations Used
 
-# ------------------------------
-# 🔹 Output / Results
-# ------------------------------
-# - Cleaned dataset
-# - Extracted:
-#   * Email parts
-#   * Phone country codes
-#   * Numeric & alphabetic values
-# - Handled NULL values
-# - Sorted and deduplicated data
+### 🔸 Regular Expressions (Regex)
 
-# ------------------------------
-# 🔹 Data Engineering Considerations
-# ------------------------------
-# - Proper NULL handling
-# - Correct regex usage
-# - Maintain data consistency
-# - Validate output at each step
+Regex was used to extract patterns from text-based columns such as:
 
-# ------------------------------
-# 🔹 Challenges Faced
-# ------------------------------
-# - Understanding complex regex
-# - Extracting exact patterns
-# - Handling mixed data types
-# - Managing NULL values
+- Extracting numbers from strings
+- Identifying patterns at the beginning or end of values
+- Extracting parts of emails (username, domain)
+- Extracting country codes from phone numbers
+- Separating alphabetic and numeric values
 
-# ------------------------------
-# 🔹 Learnings
-# ------------------------------
-# - Regex for pattern extraction
-# - Importance of data cleaning
-# - PySpark transformations
-# - NULL handling techniques
-# - Conditional logic usage
+Importance:
+Regex helps in extracting meaningful patterns from unstructured text data, which is very common in real-world datasets.
 
-# ------------------------------
-# 🔹 Topics Covered
-# ------------------------------
-# - Regex (pattern matching)
-# - Data filtering
-# - Transformations
-# - NULL handling
-# - String manipulation
-# - Date functions
-# - Sorting & deduplication
+---
 
+### 🔸 Data Filtering
+
+- Applied conditions to filter rows based on specific column values
+- Used logical operators to combine multiple filters
+
+Importance:
+Filtering helps in selecting only relevant data for analysis.
+
+---
+
+### 🔸 Column Transformations
+
+- Renamed columns for better readability
+- Created new columns using constant or derived values
+- Standardized categorical values
+
+Importance:
+Transformations improve data consistency and prepare it for analysis.
+
+---
+
+### 🔸 Conditional Logic
+
+- Applied conditional rules to modify column values
+- Categorized data based on specific conditions
+
+Importance:
+Helps apply business logic and makes the data more meaningful.
+
+---
+
+### 🔸 NULL Handling
+
+- Identified missing values in columns
+- Replaced NULL values with default values
+
+Importance:
+Prevents errors during processing and ensures accurate results.
+
+---
+
+### 🔸 Sorting & Deduplication
+
+- Sorted data based on one or more columns
+- Removed duplicate records
+
+Importance:
+Ensures clean and well-organized data for analysis.
+
+---
+
+### 🔸 Date Functions
+
+- Added current date columns
+- Calculated future and past dates
+
+Importance:
+Used for time-based tracking and analysis.
+
+---
+
+### 🔸 String Operations
+
+- Standardized text format (case conversion)
+- Split columns into structured formats
+
+Importance:
+Improves readability and usability of text data.
+
+---
+
+## 🔹 Output / Results
+
+The following outputs were generated:
+
+- Cleaned dataset with consistent formatting
+- Extracted patterns such as:
+  - Email components
+  - Phone number country codes
+  - Numeric and alphabetic segments
+- Dataset with minimal NULL-related issues
+- Sorted and deduplicated data ready for analysis
+
+---
+
+## 🔹 Data Engineering Considerations
+
+- Ensured proper handling of NULL values
+- Applied regex carefully to avoid incorrect pattern extraction
+- Maintained data consistency after transformations
+- Verified outputs after each transformation step
+
+---
+
+## 🔹 Challenges Faced
+
+- Understanding complex regex patterns
+- Extracting specific parts of strings accurately
+- Handling mixed data types in columns
+- Managing NULL values during transformations
+
+---
+
+## 🔹 Learnings
+
+- How Regular Expressions are used for pattern extraction
+- Importance of data cleaning in real-world scenarios
+- Practical usage of PySpark DataFrame transformations
+- Handling missing data effectively
+- Applying conditional logic for data standardization
+
+---
+
+## 🔹 Topics Covered
+
+- Regular Expressions (pattern matching & extraction)
+- Data filtering and transformations
+- NULL value handling
+- String manipulation
+- Date operations
+- Sorting and deduplication
