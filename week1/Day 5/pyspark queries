@@ -1,1 +1,77 @@
+# Import required PySpark modules
+
+from pyspark.sql.functions import *
+from pyspark.sql.types import *
+
+# display data
+display(dbutils.fs.ls('/Volumes/filestore/olist/data/Big Sales.csv'))
+
+# Load CSV file into DataFrame
+# header=True → first row as column names
+# inferSchema=True → automatically detect data types
+
+df=spark.read.csv('/Volumes/filestore/olist/data/Big Sales.csv',header=True,inferSchema=True)
+df.select(col('item_identifier').alias ('item_id')).display()
+
+#filter data with fat content = Regular
+
+df.filter(col('item_fat_content')=='Regular').display()
+
+# slice data with item=soft drinks and weight<10
+
+df.filter((col('item_type')=='Soft Drinks') & (col('item_weight') < 10)).display()
+
+# Filter rows where:
+# Outlet_Location_Type is either Tier 1 or Tier 2
+# AND Outlet_Size is NULL
+
+df.filter(
+    (col('outlet_location_type').isin('Tier 1','Tier 2')) & 
+    (col('outlet_size').isNull())
+    ).display()
+
+# Rename column Item_Weight → Item_Wt
+
+df.withColumnRenamed("item_weight","weight").display()
+
+
+# Add new column 'flag' with constant value 'new'
+
+df.withColumn('flag',lit('True')).display()
+
+
+
+df.withColumn('multipLy',col('item_weight') * col('item_mrp')).display()
+
+# Replace values in item_fat_content column:
+# Low Fat → LF
+# Regular → Reg
+
+df.withColumn(
+    "Item_Fat_Content",
+    regexp_replace(
+        regexp_replace(col("Item_Fat_Content"), "Low Fat", "LF"),
+        "Regular", "Reg"
+    )
+).display()
+
+
+df.orderBy(col('item_weight').desc()).display()
+
+
+df.orderBy(col('item_visibility').asc()).display()
+
+
+df.orderBy(col('item_weight').desc(),col('item_visibility').desc()).display()
+
+
+df.orderBy(col('item_weight').desc(),col('item_visibility').asc()).display()
+
+
+df.dropDuplicates().display()
+
+
+df.dropDuplicates(subset=["Item_Type"]).display()
+
+
 
